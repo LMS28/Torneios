@@ -9,7 +9,8 @@ const rl = readline.createInterface({
 function Menu() {
 
     console.log(`
------- Torneios -------
+
+    ------ Torneios -------
     
     1 - Adicionar torneios
     2 - Listar torneios
@@ -66,9 +67,8 @@ rl.question("Escolha uma das opções: ", (input1) => {
 })
 Menu()
 
-let torneios = []
+const torneios = []
 
-let nomes = []
 
 
 function adicionarTorneio() {
@@ -82,9 +82,10 @@ function adicionarTorneio() {
             torneio,
             jogo,
             data,
-            nome: nomes
+            nomes
         }
         torneios.push({torneio, jogo, data, nomes})
+        console.log(`${torneios}`)
         console.log("O torneio foi adicionado coom sucesso!")
             Menu()
         })
@@ -92,9 +93,7 @@ function adicionarTorneio() {
     })
 })
 })
-
 }
-Menu()
 
  
 
@@ -104,14 +103,14 @@ function listarTorneio() {
     if (torneios.length === 0) {
         console.log("Não existe torneios cadastrados!")
         Menu()
-    }
+    }else {
 
     console.log("-------- Torneios -------")
-    torneios.forEach((torneios, index) => {
-        console.log(`${index + 1} Torneio: ${torneios.torneio} Jogo: ${torneios.jogo} Data: ${torneios.data} Total participantes: ${nomes.length}`)
+    torneios.forEach((torneio1, index) => {
+        console.log(`${index + 1} Torneio: ${torneio1.torneio} Jogo: ${torneio1.jogo} Data: ${torneio1.data} Total participantes: ${nomes.length}`)
         Menu()
     }
-)
+)}
 }
 
 function registrarPartidas() {
