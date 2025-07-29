@@ -8,7 +8,8 @@ const rl = readline.createInterface({
 
 function Menu() {
 
-    console.log(`------ Torneios -------
+    console.log(`
+------ Torneios -------
     
     1 - Adicionar torneios
     2 - Listar torneios
@@ -63,37 +64,40 @@ rl.question("Escolha uma das opções: ", (input1) => {
             break;
     }
 })
+Menu()
 
 let torneios = []
 
 let nomes = []
 
-Menu()
+
 function adicionarTorneio() {
 
     rl.question("Digite o nome do torneio: ", (torneio) => {
     rl.question("Digite o jogo: ", (jogo) => {
     rl.question("Digite a data do torneio: ", (data) => {
-    rl.question("Digite o nome do participante: ", (nome) => {
+    rl.question("Digite o nome do participante: ", (nomes) => {
 
-        torneios.push({
+        let torneios1 = {
             torneio,
             jogo,
             data,
-        })
-
-        nomes.push({
-            nome
-
-        })
+            nome: nomes
+        }
+        torneios.push({torneio, jogo, data, nomes})
         console.log("O torneio foi adicionado coom sucesso!")
-        Menu()
+            Menu()
+        })
+        
     })
-    })
-    })
-    })
- 
+})
+})
+
 }
+Menu()
+
+ 
+
 
 function listarTorneio() {
 
@@ -104,8 +108,13 @@ function listarTorneio() {
 
     console.log("-------- Torneios -------")
     torneios.forEach((torneios, index) => {
-        console.log(`${index + 1} Torneio: ${torneios.torneio} Jogo: ${torneios.jogo} Data: ${torneios.data} total participantes: ${nomes.length}`)
-
+        console.log(`${index + 1} Torneio: ${torneios.torneio} Jogo: ${torneios.jogo} Data: ${torneios.data} Total participantes: ${nomes.length}`)
+        Menu()
     }
 )
+}
+
+function registrarPartidas() {
+
+    
 }
